@@ -8,17 +8,7 @@ import { PostsModule } from './posts/posts.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: '',
-      database: 'nest-blog-api',
-      synchronize: true,
-      autoLoadEntities: true,
-      dropSchema: true
-    }),
+    TypeOrmModule.forRoot(),
     UsersModule,
     PostsModule,
   ],
