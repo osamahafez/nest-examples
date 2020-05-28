@@ -17,6 +17,7 @@ import { PostsModule } from './posts/posts.module';
       database: 'nest-blog-api',
       synchronize: true,
       autoLoadEntities: true,
+      dropSchema: true
     }),
     UsersModule,
     PostsModule,
