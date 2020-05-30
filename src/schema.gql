@@ -12,4 +12,5 @@ type User {
 type Query {
   helloGraphql: String!
   findAllUsers: [User!]!
+  findOneUser(id: Float!): User!
 }

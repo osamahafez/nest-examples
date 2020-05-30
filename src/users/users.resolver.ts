@@ -1,7 +1,6 @@
-import { Resolver, Query } from '@nestjs/graphql';
+import { Resolver, Query, Args} from '@nestjs/graphql';
 import { UsersService } from './users.service';
 import { User as UserModel } from './user.model';
-import { User as UserEntity } from './user.entity';
 
 @Resolver('Users')
 export class UsersResolver {
@@ -16,5 +15,10 @@ export class UsersResolver {
     @Query(() => [UserModel])
     async findAllUsers() {
         return this.usersService.findAll();
+    }
+
+    @Query(() => UserModel)
+    async findOneUser(@Args('id') id: number) {
+        return this.usersService.findOne(id);
     }
 }
