@@ -6,6 +6,7 @@ import { PostsResolver } from './posts.resolver';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Post])],
-  providers: [PostsService, PostsResolver]
+  providers: [PostsService, PostsResolver],
+  exports: [PostsService]
 })
 export class PostsModule {}

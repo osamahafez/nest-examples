@@ -1,11 +1,15 @@
-import { Resolver, Query, Args } from '@nestjs/graphql';
+import { Resolver, Query, Args, ResolveField, Parent } from '@nestjs/graphql';
 import { UsersService } from './users.service';
 import { User as UserModel } from './user.model';
+import { PostsService } from 'src/posts/posts.service';
 
 @Resolver('Users')
 export class UsersResolver {
     
-    constructor(private readonly usersService: UsersService) {}
+    constructor(
+        private readonly usersService: UsersService, 
+        private readonly postsService: PostsService
+    ) {}
 
     @Query(() => String)
     async helloFromUsers() {
