@@ -3,7 +3,7 @@ import { UsersService } from './users.service';
 import { User as UserModel } from './user.model';
 import { PostsService } from 'src/posts/posts.service';
 
-@Resolver('Users')
+@Resolver(of => UserModel)
 export class UsersResolver {
     
     constructor(
@@ -24,5 +24,10 @@ export class UsersResolver {
     @Query(() => UserModel)
     async findOneUser(@Args('id') id: number) {
         return this.usersService.findOne(id);
+    }
+
+    @ResolveField()
+    async posts(@Parent() user: UserModel) {
+        return this.postsService.findUserPosts(user.id);
     }
 }

@@ -17,9 +17,4 @@ export class PostsResolver {
         return this.postsService.findAll();
     }
 
-    @Query(() => [PostModel])
-    findAllPostsOfOneUser(@Args('userId') userId: number) {
-        return this.postsService.findAllPostsOfOneUser(userId);
-    }
-
 }

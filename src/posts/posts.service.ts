@@ -19,7 +19,7 @@ export class PostsService {
         return this.postsRepository.find();
     }
 
-    findAllPostsOfOneUser(userId: number): Promise<Post[]> {
+    findUserPosts(userId: number): Promise<Post[]> {
         return this.postsRepository.find({
             where: {user: userId}
         });
