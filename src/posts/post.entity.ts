@@ -13,7 +13,7 @@ export class Post {
     @Column()
     description: string
 
-    @ManyToOne(type => User, user => user.posts)
+    @ManyToOne(type => User, user => user.posts, { onDelete: 'CASCADE' })
     user: User;
 
 }

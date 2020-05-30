@@ -36,7 +36,9 @@ export class UsersService {
         return newUser;
     }
 
-    async remove(id: number): Promise<void> {
+    async remove(id: number): Promise<UserEntity> {
+        const user = this.usersRepository.findOne(id);
         await this.usersRepository.delete(id);
+        return user;
     }
 }
