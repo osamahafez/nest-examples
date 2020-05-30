@@ -23,4 +23,5 @@ type Query {
   findOneUser(id: Float!): User!
   helloFromPosts: String!
   findAllPosts: [Post!]!
+  findAllPostsOfOneUser(userId: Float!): [Post!]!
 }

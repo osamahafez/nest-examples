@@ -1,4 +1,4 @@
-import { Resolver, Query } from '@nestjs/graphql';
+import { Resolver, Query, Args } from '@nestjs/graphql';
 import { PostsService } from './posts.service';
 import { Post as PostModel } from './post.model';
 
@@ -16,4 +16,10 @@ export class PostsResolver {
     findAllPosts() {
         return this.postsService.findAll();
     }
+
+    @Query(() => [PostModel])
+    findAllPostsOfOneUser(@Args('userId') userId: number) {
+        return this.postsService.findAllPostsOfOneUser(userId);
+    }
+
 }
