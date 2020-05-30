@@ -1,5 +1,5 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
-// import { Post } from './post';
+import { Post } from '../posts/post.model';
 
 @ObjectType()
 export class User {
@@ -15,6 +15,6 @@ export class User {
   @Field(type => Boolean)
   isActive?: boolean;
 
-//   @Field(type => [Post])
-//   posts: Post[];
+  @Field(type => [Post])
+  posts: Post[];
 }

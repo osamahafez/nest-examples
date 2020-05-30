@@ -2,15 +2,25 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Post {
+  id: Int!
+  title: String!
+  description: String!
+  user: User!
+}
+
 type User {
   id: Int!
   firstName: String!
   lastName: String!
   isActive: Boolean!
+  posts: [Post!]!
 }
 
 type Query {
-  helloGraphql: String!
+  helloFromUsers: String!
   findAllUsers: [User!]!
   findOneUser(id: Float!): User!
+  helloFromPosts: String!
+  findAllPosts: [Post!]!
 }

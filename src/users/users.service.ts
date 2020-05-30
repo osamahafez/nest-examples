@@ -12,7 +12,7 @@ export class UsersService {
     ) {}
 
 
-    helloGraphql(): string {
+    helloFromUsers(): string {
         return 'hello graphql from service';
     }
 
