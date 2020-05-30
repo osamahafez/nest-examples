@@ -24,3 +24,13 @@ type Query {
   helloFromPosts: String!
   findAllPosts: [Post!]!
 }
+
+type Mutation {
+  createUser(userInput: UserDTO!): User!
+}
+
+input UserDTO {
+  firstName: String!
+  lastName: String!
+  isActive: Boolean!
+}
