@@ -9,4 +9,9 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+
+  @Get('/json_placeholder')
+  getUsers() {
+    return this.appService.getUsers();
+  }
 }

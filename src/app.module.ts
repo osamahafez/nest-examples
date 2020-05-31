@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, HttpModule } from '@nestjs/common';
 import { Connection } from 'typeorm';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
@@ -16,6 +16,7 @@ import { PostsModule } from './posts/posts.module';
     }),
     UsersModule,
     PostsModule,
+    HttpModule
   ],
   controllers: [AppController],
   providers: [AppService],
