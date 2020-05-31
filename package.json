@@ -1,5 +1,5 @@
 {
-  "name": "nest-blog-api",
+  "name": "nest-examples",
   "version": "0.0.1",
   "description": "",
   "author": "Osama Hafez",
@@ -24,12 +24,9 @@
     "@nestjs/common": "^7.0.0",
     "@nestjs/core": "^7.0.0",
     "@nestjs/platform-express": "^7.0.0",
-    "@nestjs/typeorm": "^7.1.0",
-    "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^6.5.4",
-    "typeorm": "^0.2.25"
+    "rxjs": "^6.5.4"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.0.0",
