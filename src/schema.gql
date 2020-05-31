@@ -28,10 +28,17 @@ type Query {
 type Mutation {
   createUser(userInput: UserDTO!): User!
   deleteUser(id: Float!): User!
+  createPost(postInput: PostDTO!): Post!
 }
 
 input UserDTO {
   firstName: String!
   lastName: String!
   isActive: Boolean!
+}
+
+input PostDTO {
+  title: String!
+  description: String!
+  userId: Int!
 }
