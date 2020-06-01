@@ -23,8 +23,8 @@ export class PaypalService {
                 "payment_method": "paypal"
             },
             "redirect_urls": {
-                "return_url": "http://return.url",
-                "cancel_url": "http://cancel.url"
+                "return_url": "http://localhost:8080/payment/paypal/execute",
+                "cancel_url": "http://localhost:8080/payment/paypal/cancel"
             },
             "transactions": [{
                 "item_list": {
@@ -62,5 +62,30 @@ export class PaypalService {
             }
         });
 
+    }
+
+    executePaymentRequest(req, res) {
+        
+        const execute_payment_json = {
+            "payer_id": req.query.PayerID,
+            "transactions": [{
+                "amount": {
+                    "currency": "USD",
+                    "total": "100"
+                }
+            }]
+        };
+        
+        const paymentId = req.query.paymentId;
+        
+        paypal.payment.execute(paymentId, execute_payment_json, function (error, payment) {
+            if (error) {
+                console.log(error.response);
+                throw error;
+            } else {
+                console.log("Get Payment Response");
+                console.log(JSON.stringify(payment));
+            }
+        });
     }
 }

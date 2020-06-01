@@ -10,4 +10,9 @@ export class PaypalController {
     getPaypalData(@Req() req, @Res() res) {
         return this.paypalService.generatePaymentRequest(req, res);
     }
+
+    @Get('execute')
+    executePaypalRequest(@Req() req, @Res() res) {
+        return this.paypalService.executePaymentRequest(req, res);
+    }
 }
