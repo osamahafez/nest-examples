@@ -1,5 +1,5 @@
 import { Injectable, Redirect } from '@nestjs/common';
-import paypal from 'paypal-rest-sdk';
+import * as paypal from 'paypal-rest-sdk';
 
 @Injectable()
 export class PaypalService {

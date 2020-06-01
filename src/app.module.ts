@@ -1,4 +1,5 @@
 import { Module, HttpModule } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { Connection } from 'typeorm';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
@@ -11,6 +12,7 @@ import { PaymentModule } from './payment/payment.module';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot(),
     GraphQLModule.forRoot({
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
