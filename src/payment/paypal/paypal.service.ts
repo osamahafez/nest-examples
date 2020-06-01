@@ -4,15 +4,14 @@ import paypal from 'paypal-rest-sdk';
 @Injectable()
 export class PaypalService {
     
-    generatePaymentRequest(req, res) {
+    generatePaypalRequest(req, res) {
 
-        // these configurations come from my account on developer.paypal.com (using eng.osama.m.hafez@gmail.com)
+        // these configurations come from my gmail account on developer.paypal.com
         // under nest-paypal-test project
-        // REFACTOR: change fields to environmental variables
         const paypal_config = {
-            mode: 'sandbox', // sandbox or live
-            client_id: 'AXcb-JP8ghRyec6wg0847hB_C-eK-aBKT7vJjME6q9VE7RYehXoWgJ4HhA9OjwtcAux0a5y0HujBX2AO',
-            client_secret: 'EL5WznHOZnX--BE4dbs6wU-b43of8CRH63dXx4b8q4UCAQTIJ0h61YD7bTPTx-6NwwQWiLZerAU8vGXw',
+            mode: (process.env.NODE_ENV == 'development') ? 'sandbox' : 'live',
+            client_id: process.env.PAYPAL_CLIENT_ID,
+            client_secret: process.env.PAYPAL_CLIENT_SECRET,
         }
 
         paypal.configure(paypal_config);
@@ -23,8 +22,8 @@ export class PaypalService {
                 "payment_method": "paypal"
             },
             "redirect_urls": {
-                "return_url": "http://localhost:8080/payment/paypal/execute",
-                "cancel_url": "http://localhost:8080/payment/paypal/cancel"
+                "return_url": `${process.env.APP_URL}/payment/paypal/execute`,
+                "cancel_url": `${process.env.APP_URL}/payment/paypal/cancel`
             },
             "transactions": [{
                 "item_list": {
@@ -64,7 +63,7 @@ export class PaypalService {
 
     }
 
-    executePaymentRequest(req, res) {
+    executePaypalRequest(req, res) {
         
         const execute_payment_json = {
             "payer_id": req.query.PayerID,
@@ -87,5 +86,9 @@ export class PaypalService {
                 console.log(JSON.stringify(payment));
             }
         });
+    }
+
+    cancelPaypalRequest(req, res) {
+        res.send('Payment Cancelled');
     }
 }
