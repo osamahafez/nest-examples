@@ -7,6 +7,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { PostsModule } from './posts/posts.module';
+import { PaymentModule } from './payment/payment.module';
 
 @Module({
   imports: [
@@ -16,7 +17,8 @@ import { PostsModule } from './posts/posts.module';
     }),
     UsersModule,
     PostsModule,
-    HttpModule
+    HttpModule,
+    PaymentModule
   ],
   controllers: [AppController],
   providers: [AppService],

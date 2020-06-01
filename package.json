@@ -30,6 +30,7 @@
     "graphql": "^15.0.0",
     "graphql-tools": "^6.0.4",
     "mysql": "^2.18.1",
+    "paypal-rest-sdk": "^1.8.1",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^6.5.4",
